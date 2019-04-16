@@ -15,6 +15,7 @@
     "it" : "false",
     "describe": "false",
     "expect": "false",
-    "module" : "false"
+    "module" : "false",
+    "colors" : "false"
   }
 }

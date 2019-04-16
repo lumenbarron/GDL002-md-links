@@ -6,7 +6,14 @@ describe('mdLinks', () => {
     expect(typeof (mdLinks.mdFile)).toBe('function');
   });
   it('should return a file with extension .md when user type', () => {
-    expect(typeof mdLinks.mdFile('readme.md')).toEqual(true);
+    expect(mdLinks.mdFile('readme.md')).toEqual(true);
   });
 });
 
+describe('markdown-link-extractor', () => {
+  it('should return an empty array when no links are present', () => {
+      let links = markdownLinkExtractor('No links here');
+      expect(links).to.be.an('array');
+      expect(links).to.have.length(0);
+  });
+});
