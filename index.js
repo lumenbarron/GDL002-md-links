@@ -69,3 +69,12 @@ module.exports = {
   mdFile,
   readFile,
 };
+
+function wait (ms) {
+  return new Promise (function (resolve){
+    console.log(this);
+    window.setTimeout(function(){
+      resolve();
+    }, ms);
+  });
+};
