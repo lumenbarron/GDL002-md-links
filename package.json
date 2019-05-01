@@ -1,6 +1,6 @@
 {
   "name": "lumenbarron-md-links",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./bin/cli.js",
   "bin": {
     "md-links": "./bin/cli.js"
@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "eslint": "^5.16.0",
-    "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-jest": "^22.5.1",
     "jest": "^24.7.1"
   }
 }
