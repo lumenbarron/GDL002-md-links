@@ -1,10 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-// module.exports = (message) => {
-//   message.toUpperCase();
-// };
-
 module.exports = (filePath, options) => {
   return new Promise((resolve, reject)=> {
     // Read a file
@@ -16,10 +12,3 @@ module.exports = (filePath, options) => {
     });
   });
  };
- // const readFile = (pathName) => {
-//   let markdown = fs.readFileSync(pathName).toString();
-//   let links = markdownLinkExtractor(markdown);
-//   links.forEach(function(link) {
-//     console.log(link);
-//   });
-// };

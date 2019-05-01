@@ -2,14 +2,12 @@ const mdLinks = require ('./index');
 const filePath = process.argv[2];
 const path = require('path');
 const colors = require('colors');
+const fetch = require('node-fetch');
 const fileReaded = mdLinks(filePath, null)
-//let markdownLinkExtractor = require('markdown-link-extractor');
-//console.log(colors);
-
 
 const inputPath = (input) => {
   if (input != undefined) {
-    console.log("Your input is an addres".magenta);
+    console.log(colors.magenta("Your input is an addres"));
     return true;
   } else {
     console.log("Your input is´nt a addres".red);
@@ -17,7 +15,6 @@ const inputPath = (input) => {
   }
 };
 inputPath(filePath);
-// console.log(inputPath("something"));
 
 // const realPath = (inputRealExist) => {
 //   if (fs.existsSync(inputRealExist)) {
@@ -39,7 +36,6 @@ const mdFile = (pathFile) => {
   }
 };
 mdFile(filePath);
-// console.log(mdFile('readme.md'));
 
 //After read the file
 fileReaded.then(
@@ -52,9 +48,11 @@ fileReaded.then(
         }    
 );
 
-let htmlLinks = [];
+
 //Function to find the url, the text and the origin path
+let htmlLinks = [];
 const urlList = (data) => {
+    
     const mdLinkOne = /\[(.+?)\]\(.+?\)/g;
     const mdLinkTwo = /\[(.+?)\]\((.+?)\)/;
     let allLinks = data.match(mdLinkOne);
@@ -67,8 +65,25 @@ const urlList = (data) => {
         };
         htmlLinks.push(groupData);
     }
+    console.log(htmlLinks.length);
     console.log(htmlLinks);
+    return htmlLinks
 };
+
+const validateLinks = (allLinks) => {
+  for (let index = 0; index < allLinks.length; index++) {
+    fetch(allLinks[i])
+    .then(response => {
+      if (response.status == 200) {
+        console.log('ok');
+      } else if (response.status == 400 ||response.status == 404 ) {
+        console.log('fail');
+      }
+    })
+  }
+
+}
+console.log(validateLinks(htmlLinks))
 
 
 // module.exports = {
