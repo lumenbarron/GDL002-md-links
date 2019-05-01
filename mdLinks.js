@@ -40,7 +40,7 @@ mdFile(filePath);
 //After read the file
 fileReaded.then(
     (data) =>{
-        console.log("Links encontrados:".yellow);
+        console.log("Links found:".yellow);
         urlList(data);
         },
         (err) => { 
